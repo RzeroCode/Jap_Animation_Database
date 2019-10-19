@@ -1,0 +1,39 @@
+.headtext {
+    max-height: 50%;
+    max-width: 50%;
+}
+
+.containtable {
+    width: 100%;
+    border: 0;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.loginform {
+    min-width: 60%;
+    min-height: 60%;
+}
+
+.fmv {
+    background: repeat;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.navbarlocktop {
+    position: fixed;
+}
+
+body {
+    padding-top: 60px;
+}
+
+@media (max-width: 979px) {
+    body {
+        padding-top: 0px;
+    }
+}

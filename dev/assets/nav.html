@@ -1,0 +1,51 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-inverse navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="tablejp.php">
+                    japDB<?php if(isset($tablename)) echo " | ".$tablename; ?>
+                </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tablesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tables</a>
+                        <div class="dropdown-menu" aria-labelledby="tablesDropdown">
+                            <a class="dropdown-item" href="/dev/table.php?t=1">Animation</a>
+                            <a class="dropdown-item" href="/dev/table.php?t=2">Studios</a>
+                            <a class="dropdown-item" href="/dev/table.php?t=3">Employees</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav nav">
+                    <li>
+                        <a class="nav-link" id="searchText" href="#">Filter</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?php echo $pageusername?>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="user/<?php echo $pageusername?>">Profile</a>
+                            <a class="dropdown-item" href="/dev/index.html">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<script>
+    document.getElementById("searchText").onclick = function(){
+        this.outerHTML = `<input id="tableFilter" placeholder="Search" type="text">`
+        $(document).ready(function() {
+    $("#tableFilter").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#pageTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});
+    }
+</script>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> </title>
+    <meta name="description" content="Bootstrap Recitation">
+    <meta name="author" content="CS306-201802">
+
+    <! Bootstrap files >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/dev/main.css" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        var fileName = Math.floor(Math.random() * 10);
+    </script>
+
+</head>
+
+
+<body>
+    <video class="fmv" id="backgroundVideo" autoplay loop muted>
+				<!-- <source src="https://i.4cdn.org/wsg/1554122735703.webm"> -->
+                    <script>
+                            var fileName = Math.floor(Math.random() * 12)
+                            if (fileName === 11)
+                            document.getElementById("backgroundVideo").muted = false;
+                            document.getElementById("backgroundVideo").src=`webms/${fileName}.webm`;
+                        </script>
+				</video>
+    <div style="position:center;" class="container-fluid">
+
+        <div class="col-md-auto">
+            <div class="col-md-auto">
+                <div class="row">
+                    <div class="col">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <div class="col" style="margin-top:255px;">
+                        <form id="loginAction" action="/dev/login.php" method="POST">
+                            <input type="text" class="form-control loginform" id="inputUsername" name="username" placeholder="Username">
+                            <input type="password" class="form-control loginform" id="inputPassword" name="password" placeholder="Password">
+
+
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="rememberMe">
+                                <label class="custom-control-label" for="rememberMe">Remember me</label>
+
+
+                                <a id="createAccounttext" style="color:#7c7c7c;
+                                float:right;
+                                text-shadow: 0px 0px 4px #ffffff;" href="#">Create Account</a>
+                            </div>
+
+                            <button style="background-color:#404040;color:#808080;" type="submit" class="btn btn-primary btn-block btn-lg" / name="log">Log in</button></form>
+                        <form id="createAction" action="/dev/createaccount.php" method="POST" style="display:none">
+                            <input type="text" class="form-control loginform" id="createUsername" name="username" placeholder="Username">
+                            <input type="password" class="form-control loginform" id="createPassword" name="password" placeholder="Password">
+                            <a id="loginText" style="color:#7e7e7e;
+                                        float:right;
+                                        text-shadow: 0px 0px 4px #ffffff;" href="#">Log in instead</a>
+
+
+                            <button style="background-color:#404040;color:#808080;" type="submit" class="btn btn-primary btn-block btn-lg" / name="log">Create account</button></form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+</body>
+<script>
+    let createAcc = document.getElementById("createAccounttext");
+    let formlogin = document.getElementById("loginAction");
+    let loginText = document.getElementById("loginText");
+    let formcreate = document.getElementById("createAction");
+    createAcc.onclick = function() {
+        formlogin.style = "display:none";
+        formcreate.style = "display:all";
+    };
+    loginText.onclick = function() {
+        formcreate.style = "display:none";
+        formlogin.style = "display:all";
+
+    };
+</script>
+
+</html>
